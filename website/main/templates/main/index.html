@@ -2,11 +2,19 @@
 
 
 {% block title %}
-ГЛАВНАЯ СТРАНИЦА
+Главная страница
 {% endblock %}
 
 
 {% block content %}
-    <h1>ГЛАВНАЯ СТРАНИЦА</h1>
-    <p>Какой-то текст</p>
+    <h1>ЗАДАЧИ</h1>
+    <br>
+    {% for task in tasks %}
+    <div class="alert alert-warning ml-2">
+        <h6>{{ task.date_time }}</h6>
+        <h3>{{ task.number }}. {{ task.title }}</h3>
+        <h5>Категория: {{ task.category }}</h5>
+        <p>{{ task.task }}</p>
+    </div>
+    {% endfor %}
 {% endblock %}
