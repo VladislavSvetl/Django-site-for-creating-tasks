@@ -7,14 +7,26 @@
 
 
 {% block content %}
-    <h1>ЗАДАЧИ</h1>
+    <div class="container px-4 py-3"><h1 class="pb-2 border-bottom">Задачи</h1></div>
     <br>
     {% for task in tasks %}
-    <div class="alert alert-warning ml-2">
-        <h6>{{ task.date_time }}</h6>
-        <h3>{{ task.number }}. {{ task.title }}</h3>
-        <h5>Категория: {{ task.category }}</h5>
-        <p>{{ task.task }}</p>
+    <div class="container px-4" id="hanging-icons">
+        <div class="row g-4 py-3 row-cols-1 row-cols-lg-1">
+            <div class="col d-flex align-items-start">
+                <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+                </div>
+                <div>
+                    <h6>{{ task.date_time }}</h6>
+                    <h3 class="fs-2">{{ task.title }}</h3>
+                    <h5>Категория: {{ task.category }}</h5>
+                    <p>{{ task.task }}</p>
+                    <a href="#" class="btn btn-primary">
+                        Primary button
+                    </a>
+                </div>
+          </div>
+        </div>
     </div>
     {% endfor %}
 {% endblock %}
