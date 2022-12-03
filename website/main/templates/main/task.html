@@ -1,0 +1,58 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}
+{{ task.title }}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="bg-dark text-secondary px-4 py-5 text-center">
+        <div class="py-5">
+            <h5>{{ task.category }}</h5>
+            <h1 class="display-5 fw-bold text-white">{{ task.title }}</h1>
+            <div class="container">
+                <h5 class="text-center">{{ task.task }}</h5>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="container px-4">
+        <h3>Комментарии:</h3>
+    </div>
+
+    <hr><br>
+
+    <div class="container px-4">
+        <h4>Оставить комментарий</h4>
+    </div>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <div class="container">
+            {{ forma.username }}
+        </div>
+        <br>
+        <div class="container">
+            {{ forma.text }}
+        </div>
+        <br>
+        <div class="container">
+            <button type="submit" class="btn btn-primary">Добавить комментарий</button>
+        </div>
+    </form>
+    <br>
+    {% if comments %}
+    {% for comment in comments %}
+    <div class="container">
+        <h5>{{ comment.username }}</h5>
+        <p>{{ comment.text }}</p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>Комментарии отсутствуют</p>
+    {% endif %}
+{% endblock %}

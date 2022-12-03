@@ -7,7 +7,7 @@
 
 
 {% block content %}
-    <div class="container px-4 py-3"><h1 class="pb-2 px-4 border-bottom">Задачи</h1></div>
+    <div class="container text-center px-4 py-3"><h1 class="pb-2 px-4 border-bottom">Задачи</h1></div>
     <br>
     {% if tasks %}
     {% for task in tasks %}
@@ -18,7 +18,7 @@
                     <h3 class="fs-2 px-4">{{ task.title }}</h3>
                     <h6>Категория: {{ task.category }}</h6>
                     <p>{{ task.task }}</p>
-                    <a href="#" class="btn btn-primary">
+                    <a href="{% url 'Task detail' task.pk %}" class="btn btn-primary">
                         Подробнее
                     </a>
                 </div>
