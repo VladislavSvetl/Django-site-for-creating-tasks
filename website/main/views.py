@@ -9,10 +9,6 @@ def index(request):
     return render(request, 'main/index.html', context)
 
 
-def about(request):
-    return render(request, 'main/about.html')
-
-
 def add(request):
     error = ''
     if request.method == 'POST':
